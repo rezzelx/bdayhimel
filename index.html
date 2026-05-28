@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xixixi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <section class="layar" id="bg1">
+        <div class="slide1">
+            <h1>HAPPY BIRTHDAY</h1>
+            <p>i only can give you this :3, btw click the background</p>
+
+            <div class="click-here">
+                <a href="#bg2" id="tombol-jalan" style="text-decoration: none;">
+                    <p class="teks-klik">click it?</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="layar" id="bg2">
+        <div class="slide">
+            <h2>ITS ALL YOUR PRESENT !!!</h2>
+            <div class="container-hadiah">
+                <button class="btn-gambar" onclick="alert('camat ulang taun yahh, its gonna be your late bday gift')">
+                    <img src="pict/present1.png" alt="hadiah 1">
+                </button>
+
+                <button class="btn-gambar" onclick="pindahKeSlide3()">
+                    <img src="pict/present2.png" alt="hadiah 2">
+                </button>
+                
+                <button class="btn-gambar" onclick="alert('gabisa nyusun kata kata jir, pokonya all best wishes for you')">
+                    <img src="pict/present3.png" alt="hadiah 3">
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="layar" id="bg3">
+        <div class="slide">
+            <h2>dont click it, its virus!!!</h2>
+            <div class="mess-cont">
+                <button class="btn-pesan" 
+                onclick="window.open('https://open.spotify.com/playlist/1blj4T6SR57aouJ3gxkrj9?si=FJXEWvU7QpqP6mLdfMYYuw')">
+                    <img src="pict/mail.gif" alt="pesanbaru">
+                </button>
+            </div>
+        </div>
+    </section>
+<script>
+        document.getElementById('tombol-jalan').addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.getElementById('bg2');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+        function pindahKeSlide3() {
+            const slide3 = document.getElementById('bg3'); 
+            if (slide3) {
+                slide3.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert("Kado berikutnya belum siap!");
+            }
+        }
+        if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+    }
+   </script>
+<audio id="myAudio" loop>
+  <source src="bdaysong.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Fungsi untuk memutar musik
+  function playMusic() {
+    var audio = document.getElementById("myAudio");
+    audio.play().catch(function(error) {
+      console.log("Autoplay diblokir oleh browser, menunggu interaksi.");
+    });
+    // Hapus event listener setelah musik berhasil berputar
+    document.removeEventListener('click', playMusic);
+  }
+
+  // Jalankan fungsi saat pengguna mengklik apa saja di halaman web
+  document.addEventListener('click', playMusic);
+</script>
+</body>
+</html>
